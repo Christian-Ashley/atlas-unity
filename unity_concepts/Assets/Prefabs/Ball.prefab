@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8302280578513839464}
   - component: {fileID: 940241967398550847}
   m_Layer: 0
-  m_Name: New Prefab
+  m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,7 +92,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6651005883839392089}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f51d6af96fe1060448b340ad3da3ec6f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
