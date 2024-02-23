@@ -2,40 +2,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControler : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-     public float speed = 5f;
-     public int jumpHeight = 10;
-     public int Gravity = 5;
-
+    public float speed;
+    public float rotationSpeed;
+    public float jumpSpeed;
+    
+    private CharacterController characterController;
+    private float ySpeed;
+    
     // Start is called before the first frame update
     void Start()
     {
-     ///start unnecassary   
+        characterController = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        float horizontalImput = Input.GetAxis("Horizontal");
+        float verticalImput = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical);
-        movement.Normalize(); // Normalize the movement vector to prevent faster diagonal movement
+        Vector3 moveDitrection = new Vector3(horizontalImput, 0, verticalImput);
+        float magnitude = Mathf.Clamp01(moveDitrection.magnitude) * speed;
+        moveDitrection.Normalize();
 
-        movement.y = -Gravity * Time.deltaTime;
+        ySpeed += Physics.gravity.y * Time.deltaTime;
 
-        transform.Translate(movement * speed * Time.deltaTime);
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (characterController.isGrounded)
         {
-            Jump();
+            ySpeed = -0.5f;
+            
+            if (Input.GetButtonDown("Jump"))
+            {
+                ySpeed = jumpSpeed;
+            }
         }
-    }
-    void Jump()
-    {
-        Vector3 newPosition = transform.position;
-        newPosition.y += jumpHeight;
-        transform.position = newPosition;
+
+        Vector3 velocity = moveDitrection * magnitude;
+        velocity.y = ySpeed;
+
+        characterController.Move(velocity * Time.deltaTime);
+
+        if (moveDitrection != Vector3.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(moveDitrection, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
     }
 }
