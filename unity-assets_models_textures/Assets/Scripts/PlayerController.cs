@@ -7,47 +7,61 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float rotationSpeed;
     public float jumpSpeed;
-    
+    public Transform startPosition;
+
     private CharacterController characterController;
     private float ySpeed;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        ResetPlayer();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float horizontalImput = Input.GetAxis("Horizontal");
-        float verticalImput = Input.GetAxis("Vertical");
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
 
-        Vector3 moveDitrection = new Vector3(horizontalImput, 0, verticalImput);
-        float magnitude = Mathf.Clamp01(moveDitrection.magnitude) * speed;
-        moveDitrection.Normalize();
+        Vector3 moveDirection = new Vector3(horizontalInput, 0, verticalInput);
+        float magnitude = Mathf.Clamp01(moveDirection.magnitude) * speed;
+        moveDirection.Normalize();
 
         ySpeed += Physics.gravity.y * Time.deltaTime;
 
         if (characterController.isGrounded)
         {
             ySpeed = -0.5f;
-            
+
             if (Input.GetButtonDown("Jump"))
             {
                 ySpeed = jumpSpeed;
             }
         }
 
-        Vector3 velocity = moveDitrection * magnitude;
+        Vector3 velocity = moveDirection * magnitude;
         velocity.y = ySpeed;
 
         characterController.Move(velocity * Time.deltaTime);
 
-        if (moveDitrection != Vector3.zero)
+        if (moveDirection != Vector3.zero)
         {
-            Quaternion toRotation = Quaternion.LookRotation(moveDitrection, Vector3.up);
+            Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
+
+        if (transform.position.y < -10f)
+        {
+            ResetPlayer();
+        }
+    }
+
+    private void ResetPlayer()
+    {
+        characterController.enabled = false;
+        transform.position = startPosition.position;
+        characterController.enabled = true;
     }
 }
