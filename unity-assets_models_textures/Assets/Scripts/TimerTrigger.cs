@@ -7,15 +7,11 @@ public class TimerTrigger : MonoBehaviour
 {
     public Timer timerScript;
 
-    private void Start()
-    {
-    }
-
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            timerScript.enabled = true;
+            timerScript.gameObject.SetActive(true);
         }
     }
 }
