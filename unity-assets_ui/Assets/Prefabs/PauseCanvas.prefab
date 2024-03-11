@@ -1067,13 +1067,14 @@ GameObject:
   - component: {fileID: 6062398284264943506}
   - component: {fileID: 2662190680875052861}
   - component: {fileID: 1885646057998841329}
+  - component: {fileID: 7512582412109023129}
   m_Layer: 5
   m_Name: PauseCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &78595464098966951
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1157,6 +1158,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &7512582412109023129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496007753175179102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c79e393b93e8ef945900d7c64065c875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  restartButton: {fileID: 5512552961323089919}
+  menuButton: {fileID: 533018166729762193}
+  optionsButton: {fileID: 838348739034967326}
+  resumeButton: {fileID: 1112146668003860374}
+  PMenu: {fileID: 0}
 --- !u!1001 &8713498853322998347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1254,6 +1272,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11892542a2eb05c40a758690947a23e4, type: 3}
+--- !u!114 &838348739034967326 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8308851827324235605, guid: 11892542a2eb05c40a758690947a23e4, type: 3}
+  m_PrefabInstance: {fileID: 8713498853322998347}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5473000579793222276 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3681851084256819407, guid: 11892542a2eb05c40a758690947a23e4, type: 3}
