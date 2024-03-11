@@ -199,7 +199,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Resume
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3d1091bb4312a0b47ac3146af028e1ad, type: 2}
   m_sharedMaterial: {fileID: 8222621114389086587, guid: 3d1091bb4312a0b47ac3146af028e1ad, type: 2}
@@ -1073,7 +1073,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &78595464098966951
 RectTransform:
   m_ObjectHideFlags: 0

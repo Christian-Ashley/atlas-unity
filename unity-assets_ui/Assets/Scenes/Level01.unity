@@ -1617,21 +1617,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2662190680875052861, guid: b76596733bcb34747b96e4af139d5a5c, type: 3}
-      propertyPath: m_ReferenceResolution.x
-      value: 1280
-      objectReference: {fileID: 0}
-    - target: {fileID: 2662190680875052861, guid: b76596733bcb34747b96e4af139d5a5c, type: 3}
-      propertyPath: m_ReferenceResolution.y
-      value: 800
-      objectReference: {fileID: 0}
     - target: {fileID: 8496007753175179102, guid: b76596733bcb34747b96e4af139d5a5c, type: 3}
       propertyPath: m_Name
       value: PauseCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 8496007753175179102, guid: b76596733bcb34747b96e4af139d5a5c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 8952037899460818359, guid: b76596733bcb34747b96e4af139d5a5c, type: 3}
+      propertyPath: m_text
+      value: Resume
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
