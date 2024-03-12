@@ -1325,6 +1325,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &2062595582 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8496007753175179102, guid: b76596733bcb34747b96e4af139d5a5c, type: 3}
+  m_PrefabInstance: {fileID: 3693658546725779897}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2082188916 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4652429397975319161, guid: 1c6597dc9370e774cb7f47bd2bd631a4, type: 3}
@@ -1617,13 +1622,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7512582412109023129, guid: b76596733bcb34747b96e4af139d5a5c, type: 3}
+      propertyPath: PMenu
+      value: 
+      objectReference: {fileID: 2062595582}
     - target: {fileID: 8496007753175179102, guid: b76596733bcb34747b96e4af139d5a5c, type: 3}
       propertyPath: m_Name
       value: PauseCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 8952037899460818359, guid: b76596733bcb34747b96e4af139d5a5c, type: 3}
-      propertyPath: m_text
-      value: Resume
+    - target: {fileID: 8496007753175179102, guid: b76596733bcb34747b96e4af139d5a5c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
