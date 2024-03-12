@@ -1,37 +1,41 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform playerTransform;
-    public float cameraSpeed = 2.0f;
-    public float rotationSpeed = 2.0f;
-    public Transform topPosition;
-
     private Vector3 offset;
-
+    public Transform the;
+    public GameObject player;
+    public float MouseSpeed = 4f;
+    public bool isInverted;
+    // Start is called before the first frame update
     void Start()
     {
-        offset = transform.position - playerTransform.position;
+        the = GetComponent<Transform>();
+       offset = the.position - player.transform.position; 
     }
 
-    void LateUpdate()
+    // Update is called once per frame
+    private void LateUpdate()
     {
-        // Move the camera to follow the player
-        Vector3 targetPosition = playerTransform.position + offset;
-        transform.position = Vector3.Lerp(transform.position, targetPosition, cameraSpeed * Time.deltaTime);
-
-        // Restrict camera movement within the vertical range of the top position
-        float clampedY = Mathf.Clamp(transform.position.y, topPosition.position.y, Mathf.Infinity);
-        transform.position = new Vector3(transform.position.x, clampedY, transform.position.z);
-
-        // Rotate the camera based on mouse movement
         if (Input.GetMouseButton(1))
         {
-            float mouseX = Input.GetAxis("Mouse X") * rotationSpeed;
-            float mouseY = Input.GetAxis("Mouse Y") * rotationSpeed;
-
-            transform.RotateAround(playerTransform.position, Vector3.up, mouseX);
-            transform.RotateAround(playerTransform.position, transform.right, -mouseY);
+            if (isInverted == true)
+            {
+                offset = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * MouseSpeed, Vector3.up) * Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * MouseSpeed, Vector3.left) * offset;
+            }
+            else
+            {
+                offset = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * MouseSpeed, Vector3.down) * Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * MouseSpeed, Vector3.left) * offset;
+            }
+            transform.position = player.transform.position + offset;
+            transform.LookAt(player.transform.position);
+        }
+        else
+        {
+            transform.position = player.transform.position + offset;
         }
     }
+    
 }
