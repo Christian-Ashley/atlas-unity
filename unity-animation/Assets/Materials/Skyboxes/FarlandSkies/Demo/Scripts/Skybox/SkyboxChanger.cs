@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-
+using System.Linq;
 public class SkyboxChanger : MonoBehaviour
 {
     public Material[] Skyboxes;
@@ -9,8 +9,8 @@ public class SkyboxChanger : MonoBehaviour
     public void Awake()
     {
         _dropdown = GetComponent<Dropdown>();
-        //var options = Skyboxes.Select(skybox => skybox.name).ToList();
-        //_dropdown.AddOptions(options);
+        var options = Skyboxes.Select(skybox => skybox.name).ToList();
+        _dropdown.AddOptions(options);
     }
 
     public void ChangeSkybox()
