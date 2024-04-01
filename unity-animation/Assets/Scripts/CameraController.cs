@@ -1,41 +1,32 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private Vector3 offset;
-    public Transform the;
     public GameObject player;
-    public float MouseSpeed = 4f;
-    public bool isInverted;
-    // Start is called before the first frame update
+    public Vector3 offset;
+    public float rotationSpeed;
+    public bool moveCam = true;
+
     void Start()
     {
-        the = GetComponent<Transform>();
-       offset = the.position - player.transform.position; 
-    }
-
-    // Update is called once per frame
-    private void LateUpdate()
-    {
-        if (Input.GetMouseButton(1))
-        {
-            if (isInverted == true)
-            {
-                offset = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * MouseSpeed, Vector3.up) * Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * MouseSpeed, Vector3.left) * offset;
-            }
-            else
-            {
-                offset = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * MouseSpeed, Vector3.down) * Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * MouseSpeed, Vector3.left) * offset;
-            }
-            transform.position = player.transform.position + offset;
-            transform.LookAt(player.transform.position);
-        }
-        else
-        {
-            transform.position = player.transform.position + offset;
-        }
+        
     }
     
+    // Update is called once per frame
+    void LateUpdate()
+    {
+        if (moveCam)
+        {
+            transform.position = player.transform.position + offset;
+
+            Quaternion camTurnAngle = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * rotationSpeed, Vector3.up);
+
+            offset = camTurnAngle * offset;
+            transform.LookAt(player.transform);
+        }
+    }
+
 }

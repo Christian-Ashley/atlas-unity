@@ -547,7 +547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1c48f5a7d8978a84e84aa3c25eedba1b, type: 3}
       propertyPath: m_Name
-      value: Ty (1)
+      value: ty
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1183,10 +1183,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2ec06c4fd4f6d4d952d13d6b1ea834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  the: {fileID: 0}
   player: {fileID: 106421882}
-  MouseSpeed: 4
-  isInverted: 0
+  offset: {x: 0, y: 1, z: -6}
+  rotationSpeed: 0
+  moveCam: 1
 --- !u!1001 &1276791368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1699,7 +1699,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4652429397975319161, guid: 1c6597dc9370e774cb7f47bd2bd631a4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4652429397975319161, guid: 1c6597dc9370e774cb7f47bd2bd631a4, type: 3}
       propertyPath: m_LocalPosition.z
