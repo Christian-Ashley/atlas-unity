@@ -38,7 +38,7 @@ AnimatorStateTransition:
   m_Name: JumpToRunning
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: IsJumping
+    m_ConditionEvent: IsJump
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8295312754279089113}
@@ -292,7 +292,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: IsJumping
+  - m_Name: IsJump
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -326,7 +326,7 @@ AnimatorStateTransition:
   m_Name: JumpToIdle
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: IsJumping
+    m_ConditionEvent: IsJump
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2851328239766740572}
@@ -431,7 +431,7 @@ AnimatorStateTransition:
   m_Name: RunningToJump
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: IsJumping
+    m_ConditionEvent: IsJump
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5966282066794480239}
@@ -499,7 +499,7 @@ AnimatorStateTransition:
   m_Name: IdleToJump
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: IsJumping
+    m_ConditionEvent: IsJump
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5966282066794480239}

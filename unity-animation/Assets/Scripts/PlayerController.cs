@@ -4,64 +4,69 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
-    public float rotationSpeed;
-    public float jumpSpeed;
-    public Transform startPosition;
 
-    private CharacterController characterController;
-    private float ySpeed;
+    public float threshold;
+    CharacterController myCharController;
+    Animator tyAnimator;
 
-    // Start is called before the first frame update
+    private float speed = 10f;
+    private float jmpFrc = 20f;
+
+    private const float gravity = 25f;
+
+    private Vector3 mvng;
+
+
     void Start()
     {
-        characterController = GetComponent<CharacterController>();
-        ResetPlayer();
+        myCharController = GetComponent<CharacterController>();
+        tyAnimator = GetComponentInChildren<Animator>();
+        mvng = Vector3.zero;   
     }
 
-    // Update is called once per frame
     void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-
-        Vector3 moveDirection = new Vector3(horizontalInput, 0, verticalInput);
-        float magnitude = Mathf.Clamp01(moveDirection.magnitude) * speed;
-        moveDirection.Normalize();
-
-        ySpeed += Physics.gravity.y * Time.deltaTime;
-
-        if (characterController.isGrounded)
-        {
-            ySpeed = -0.5f;
-
-            if (Input.GetButtonDown("Jump"))
-            {
-                ySpeed = jumpSpeed;
-            }
-        }
-
-        Vector3 velocity = moveDirection * magnitude;
-        velocity.y = ySpeed;
-
-        characterController.Move(velocity * Time.deltaTime);
-
-        if (moveDirection != Vector3.zero)
-        {
-            Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
-        }
-
-        if (transform.position.y < -10f)
-        {
-            ResetPlayer();
-        }
+        mvmnt();
     }
 
-    private void ResetPlayer()
+    void mvmnt()
     {
-        characterController.enabled = false;
-        transform.position = startPosition.position;
-        characterController.enabled = true;
+        if(myCharController.isGrounded)
+        {
+
+            mvng = new Vector3(Input.GetAxis("Horizontal"),0f, Input.GetAxis("Vertical"));
+            mvng *= speed;
+            mvng = transform.rotation * mvng;
+            if(Input.GetButton("Jump"))
+            {
+                mvng.y = jmpFrc;
+                tyAnimator.SetBool("IsJump", true);
+            }
+            else
+            {
+                tyAnimator.SetBool("IsJump", false);
+
+            }
+            tyAnimator.SetBool("IsFalling", false);
+        }
+
+        if (myCharController.velocity.x != 0)
+        {
+            tyAnimator.SetBool("IsRunning", true);
+        }
+        else
+        {
+            tyAnimator.SetBool("IsRunning", false);
+        }
+        mvng.y -= gravity * Time.deltaTime;
+
+        myCharController.Move(mvng * Time.deltaTime);
+
+        if(transform.position.y < threshold)
+        {
+            tyAnimator.SetBool("IsFalling", true);
+            transform.position = new Vector3(0f, 25f, 0f);
+            
+        }
     }
 }

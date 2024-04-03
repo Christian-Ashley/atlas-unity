@@ -1430,6 +1430,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ty
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 1c48f5a7d8978a84e84aa3c25eedba1b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ffe62bdc38114c740a66ec7315d84ec0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
