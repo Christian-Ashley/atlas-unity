@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: e62ed14821a12a54298712a4515cc198
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - lvl1: {instanceID: 0}
+  - lvl2: {instanceID: 0}
+  - lvl3: {instanceID: 0}
+  - optionsButton: {instanceID: 0}
+  - exitButton: {instanceID: 0}
+  - buttonRolloverSound: {fileID: 8300000, guid: b12ebb80a8423374096193965345efee, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

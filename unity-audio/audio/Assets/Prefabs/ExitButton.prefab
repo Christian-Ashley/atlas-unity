@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9184658042784869503}
   - component: {fileID: 1481615326767497954}
   - component: {fileID: 7049385091465951669}
+  - component: {fileID: 3723081267085984203}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -121,6 +122,24 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3723081267085984203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4722202803397779273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e62ed14821a12a54298712a4515cc198, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lvl1: {fileID: 0}
+  lvl2: {fileID: 0}
+  lvl3: {fileID: 0}
+  optionsButton: {fileID: 0}
+  exitButton: {fileID: 7049385091465951669}
+  buttonRolloverSound: {fileID: 8300000, guid: b12ebb80a8423374096193965345efee, type: 3}
 --- !u!1 &6857904532594402691
 GameObject:
   m_ObjectHideFlags: 0

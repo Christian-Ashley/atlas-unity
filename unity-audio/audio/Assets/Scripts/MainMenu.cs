@@ -12,21 +12,19 @@ public class MainMenu : MonoBehaviour
     public Button optionsButton;
     public Button exitButton;
     private int SceneHistory;
-    public AudioClip buttonRolloverSound;
+    public AudioSource buttonRolloverSound;
 
     // Start is called before the first frame update
     void Start()
     {
         SceneHistory = SceneManager.GetActiveScene().buildIndex;
         PlayerPrefs.SetInt("Previous", SceneHistory);
-        lvl1.onClick.AddListener(delegate { LevelSelect(1); PlayButtonRolloverSound(); });
-        lvl2.onClick.AddListener(delegate { LevelSelect(2); PlayButtonRolloverSound(); });
-        lvl3.onClick.AddListener(delegate { LevelSelect(3); PlayButtonRolloverSound(); });
+        lvl1.onClick.AddListener(delegate { LevelSelect(1); });
+        lvl2.onClick.AddListener(delegate { LevelSelect(2); });
+        lvl3.onClick.AddListener(delegate { LevelSelect(3); });
 
-        optionsButton.onClick.AddListener(delegate { Options(); PlayButtonRolloverSound(); });
-        exitButton.onClick.AddListener(delegate { exitProgram(); PlayButtonRolloverSound(); });
-
-        buttonRolloverSound = Resources.Load<AudioClip>("button-rollover");
+        optionsButton.onClick.AddListener(delegate { Options(); });
+        exitButton.onClick.AddListener(delegate { exitProgram(); });
     }
 
     public void LevelSelect(int lvl)
@@ -47,12 +45,18 @@ public class MainMenu : MonoBehaviour
 
     private void PlayButtonRolloverSound()
     {
-        AudioSource.PlayClipAtPoint(buttonRolloverSound, transform.position);
+        buttonRolloverSound.Play();
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnMouseOver()
     {
+        //If your mouse hovers over the GameObject with the script attached, output this message
+        Debug.Log("Mouse is over GameObject.");
+    }
 
+    void OnMouseExit()
+    {
+        //The mouse is no longer hovering over the GameObject so output this message each frame
+        Debug.Log("Mouse is no longer on GameObject.");
     }
 }
