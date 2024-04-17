@@ -13,6 +13,7 @@ public class hover : MonoBehaviour, IPointerEnterHandler
     public Button optionsButton;
     public Button exitButton;
     public AudioClip buttonRolloverSound;
+    public AudioSource buttonSounds;
 
     void Start()
     {
@@ -33,6 +34,7 @@ public class hover : MonoBehaviour, IPointerEnterHandler
 
     public void PlayButtonRolloverSound()
     {
-        AudioSource.PlayClipAtPoint(buttonRolloverSound, transform.position);
+        //buttonSounds.clip = buttonRolloverSound;
+        buttonSounds.Play();
     }
 }

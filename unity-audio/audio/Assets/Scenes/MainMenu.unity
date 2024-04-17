@@ -913,6 +913,7 @@ MonoBehaviour:
   optionsButton: {fileID: 958217587}
   exitButton: {fileID: 3112561096357625803}
   buttonRolloverSound: {fileID: 8300000, guid: b12ebb80a8423374096193965345efee, type: 3}
+  buttonSounds: {fileID: 19027452}
 --- !u!1 &736027414
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,6 +1280,7 @@ MonoBehaviour:
   optionsButton: {fileID: 958217587}
   exitButton: {fileID: 3112561096357625803}
   buttonRolloverSound: {fileID: 8300000, guid: b12ebb80a8423374096193965345efee, type: 3}
+  buttonSounds: {fileID: 19027452}
 --- !u!1 &1486004623
 GameObject:
   m_ObjectHideFlags: 0
@@ -1756,6 +1758,7 @@ MonoBehaviour:
   optionsButton: {fileID: 958217587}
   exitButton: {fileID: 3112561096357625803}
   buttonRolloverSound: {fileID: 8300000, guid: b12ebb80a8423374096193965345efee, type: 3}
+  buttonSounds: {fileID: 19027452}
 --- !u!1001 &805495817819777631
 PrefabInstance:
   m_ObjectHideFlags: 0
