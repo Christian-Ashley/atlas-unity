@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private const float gravity = 25f;
 
     private Vector3 mvng;
+    public AudioSource footSteps;
 
 
     void Start()
@@ -37,6 +39,7 @@ public class PlayerController : MonoBehaviour
             mvng = new Vector3(Input.GetAxis("Horizontal"),0f, Input.GetAxis("Vertical"));
             mvng *= speed;
             mvng = transform.rotation * mvng;
+            
             if(Input.GetButton("Jump"))
             {
                 mvng.y = jmpFrc;
@@ -68,5 +71,11 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(0f, 25f, 0f);
             
         }
+        if (myCharController.isGrounded && IsRunning = true)
+            {
+                CharacterController.mvng.AddListener(delegate { playerRunningSound(); });
+                playerRunningSound = Resources.Load<AudioClip>("footsteps-running-rock");
+            }
+
     }
 }
