@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
         {
             tyAnimator.SetBool("IsRunning", false);
         }
+        var IsRunning = tyAnimator.GetBool("IsRunning");
         mvng.y -= gravity * Time.deltaTime;
 
         myCharController.Move(mvng * Time.deltaTime);
@@ -71,10 +72,10 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(0f, 25f, 0f);
             
         }
-        if (myCharController.isGrounded && IsRunning = true)
+        if (myCharController.isGrounded && IsRunning == true)
             {
-                CharacterController.mvng.AddListener(delegate { playerRunningSound(); });
-                playerRunningSound = Resources.Load<AudioClip>("footsteps-running-rock");
+            //footSteps.clip = Resources.Load<AudioClip>("footsteps-running-rock");
+               footSteps.Play();
             }
 
     }
