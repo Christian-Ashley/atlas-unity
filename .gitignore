@@ -5,3 +5,5 @@
 /unity-audio/Assets/Materials
 /unity-audio/Assets/Animations
 /unity-audio/Assets/Animations
+unity_ar_business_card/Assets/Editor/Migration/AddVuforiaEnginePackage.cs
+/unity_ar_business_card/Packages
