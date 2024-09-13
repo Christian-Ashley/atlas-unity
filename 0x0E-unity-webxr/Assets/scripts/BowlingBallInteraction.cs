@@ -1,40 +1,50 @@
 using System.Collections;
-using System.Collections.Generic; 
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
 
-public class BowlingBallInteraction : MonoBehaviour
+public class BowlingBallInteractions : MonoBehaviour
 {
-    public XRGrabInteractable grabInteractable;
-    private XRBaseInteractor currentInteractor;
 
-    private void Start()
+    public GameObject PlayerController;
+    public GameObject BowlingBall;
+    public float Speed;
+    public bool BallMove = false;
+    // Start is called before the first frame update
+    void Start()
     {
-        grabInteractable = GetComponent<XRGrabInteractable>();
-        grabInteractable.activated.AddListener(OnActivated);
-        grabInteractable.deactivated.AddListener(OnDeactivated);
+        
     }
 
-    private void OnActivated(ActivateEventArgs args)
+    // Update is called once per frame
+    void Update()
     {
-        currentInteractor = args.interactor;
-        // Grab the object
-        currentInteractor.StartInteraction(grabInteractable);
+        Move();
     }
 
-    private void OnDeactivated(DeactivateEventArgs args)
+    public void OnTriggerEnter(Collider other)
     {
-        // Release the object
-        currentInteractor.EndInteraction(grabInteractable);
-        currentInteractor = null;
-    }
-
-    private void Update()
-    {
-        // Move the object with the interactor
-        if (currentInteractor != null)
+        if (other.CompareTag("AlleyFloor"))
         {
-            transform.position = currentInteractor.transform.position;
+            Debug.Log("Touched");
+            PlayerController.GetComponentInChildren<KeyboardMovement>().enabled = false;
+
+            BallMove = true;
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        PlayerController.GetComponentInChildren<KeyboardMovement>().enabled = true;
+        BallMove = false;
+    }
+
+    public void Move()
+    {
+        if (BallMove == true)
+        {
+            Vector3 Movement = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
+
+            BowlingBall.transform.position += Movement * Speed * Time.deltaTime;
         }
     }
 }
