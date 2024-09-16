@@ -278,6 +278,25 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 893455091}
   m_SourcePrefab: {fileID: 100100000, guid: a9939aa2c8d200c41882ba121a9b2b0f, type: 3}
+--- !u!1 &223974226 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1611361787474004, guid: 54a613ba6e982e84db04156af08d6a89, type: 3}
+  m_PrefabInstance: {fileID: 1146747117}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &223974228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223974226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ba4b58e106fa274c8886beb6eb393f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivity: 100
+  moveSpeed: 5
 --- !u!1 &300156854 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5083247886216465027, guid: a9939aa2c8d200c41882ba121a9b2b0f, type: 3}
@@ -719,6 +738,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1611361787474004, guid: 54a613ba6e982e84db04156af08d6a89, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 223974228}
     - targetCorrespondingSourceObject: {fileID: 1854678450583440, guid: 54a613ba6e982e84db04156af08d6a89, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1476417508}
@@ -945,10 +967,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa347eed124d3546a6069806e26da22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerController: {fileID: 0}
-  BowlingBall: {fileID: 0}
-  Speed: 0
-  BallMove: 0
+  throwForce: 105
+  pickUpDistance: 5
+  controlForce: 10
 --- !u!4 &1287870665 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a9939aa2c8d200c41882ba121a9b2b0f, type: 3}
