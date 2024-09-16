@@ -4,47 +4,47 @@ using UnityEngine;
 
 public class BowlingBallInteractions : MonoBehaviour
 {
-
     public GameObject PlayerController;
     public GameObject BowlingBall;
-    public float Speed;
+    public float Speed = 10f;
     public bool BallMove = false;
-    // Start is called before the first frame update
-    void Start()
+
+    private CharacterController characterController;
+
+    private void Awake()
     {
-        
+        characterController = PlayerController.GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Move();
-    }
-
-    public void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("AlleyFloor"))
         {
-            Debug.Log("Touched");
+            Debug.Log("bonk");
             PlayerController.GetComponentInChildren<KeyboardMovement>().enabled = false;
 
             BallMove = true;
         }
     }
 
-    public void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         PlayerController.GetComponentInChildren<KeyboardMovement>().enabled = true;
         BallMove = false;
     }
 
-    public void Move()
+    private void Update()
     {
-        if (BallMove == true)
+        if (BallMove)
         {
-            Vector3 Movement = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
-
-            BowlingBall.transform.position += Movement * Speed * Time.deltaTime;
+            Move();
         }
+    }
+
+    private void Move()
+    {
+        Vector3 Movement = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
+
+        characterController.Move(Movement * Speed * Time.deltaTime);
     }
 }
